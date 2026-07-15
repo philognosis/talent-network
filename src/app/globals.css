@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+:root {
+  /* Base canvas */
+  --canvas: #070a10;
+  --surface: #0d121b;
+  --surface-raised: #131a26;
+  --border-subtle: #1f2a38;
+  --border-strong: #2c394b;
+
+  /* Text */
+  --ink: #e7ecf3;
+  --ink-muted: #8a93a6;
+  --ink-faint: #566072;
+
+  /* Signal colors */
+  --signal-cyan: #4fd8ff;
+  --signal-cyan-dim: #2a8fb3;
+  --signal-amber: #ffb454;
+  --signal-violet: #9b8cff;
+  --signal-green: #5eead4;
+  --signal-danger: #ff6b6b;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-signal-cyan: var(--signal-cyan);
+  --color-signal-cyan-dim: var(--signal-cyan-dim);
+  --color-signal-amber: var(--signal-amber);
+  --color-signal-violet: var(--signal-violet);
+  --color-signal-green: var(--signal-green);
+  --color-signal-danger: var(--signal-danger);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-data: var(--font-data);
+}
+
+:root {
+  /* Curated system stacks standing in for Space Grotesk / Inter / JetBrains Mono.
+     See src/app/layout.tsx for how to swap in bundled webfonts later. */
+  --font-display: "Avenir Next", "Segoe UI", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-data: "SF Mono", "JetBrains Mono", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+html,
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  border-color: var(--border-subtle);
+}
+
+::selection {
+  background: color-mix(in oklab, var(--signal-cyan) 35%, transparent);
+  color: var(--ink);
+}
+
+/* Thin, dark scrollbars for panels */
+.scroll-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+
+/* Glass panel used by search bar, HUD, and result panels */
+.glass {
+  background: color-mix(in oklab, var(--surface) 78%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Respect reduced-motion preference for the whole app */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  70% { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+.pulse-ring {
+  animation: pulse-ring 2.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+}
+
+/* MapLibre controls restyled to match dark HUD */
+.maplibregl-ctrl-group {
+  background: var(--surface) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+.maplibregl-ctrl-group button {
+  background: transparent !important;
+}
+.maplibregl-ctrl-group button + button {
+  border-top: 1px solid var(--border-subtle) !important;
+}
+.maplibregl-ctrl button .maplibregl-ctrl-icon {
+  filter: invert(1) brightness(1.6);
+}
+.maplibregl-popup-content {
+  background: var(--surface-raised) !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5) !important;
+}
+.maplibregl-popup-tip {
+  border-top-color: var(--surface-raised) !important;
+  border-bottom-color: var(--surface-raised) !important;
+}
