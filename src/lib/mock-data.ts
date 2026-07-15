@@ -48,57 +48,12 @@ export const HUBS = [
 ] as const;
 
 const DEPARTMENTS = [
-  // Tech / Software
   "Engineering",
   "Product",
   "Design",
   "Data & AI",
   "Security",
   "Operations",
-  // Finance & Banking
-  "Investment Banking",
-  "Asset Management",
-  "Risk & Compliance",
-  "Trading",
-  // Healthcare & Life Sciences
-  "Clinical Research",
-  "Medical Affairs",
-  "Health Informatics",
-  "Pharmaceutical R&D",
-  // Manufacturing & Supply Chain
-  "Supply Chain",
-  "Quality Assurance",
-  "Process Engineering",
-  "Procurement",
-  // Energy & Sustainability
-  "Renewable Energy",
-  "Grid Infrastructure",
-  "ESG Strategy",
-  // Media & Creative
-  "Content Strategy",
-  "Brand & Marketing",
-  "Journalism",
-  "Film & Production",
-  // Education & Research
-  "Curriculum Design",
-  "Academic Research",
-  "EdTech",
-  // Legal & Policy
-  "Legal",
-  "Public Policy",
-  "Regulatory Affairs",
-  // Consulting & Strategy
-  "Management Consulting",
-  "Strategy & Growth",
-  "Change Management",
-  // Logistics & Transport
-  "Logistics",
-  "Urban Mobility",
-  "Aviation",
-  // Real Estate & Construction
-  "Architecture",
-  "Real Estate Development",
-  "Construction Management",
 ] as const;
 
 const TEAM_NAMES_BY_DEPT: Record<string, string[]> = {
@@ -108,123 +63,30 @@ const TEAM_NAMES_BY_DEPT: Record<string, string[]> = {
   "Data & AI": ["Applied AI", "Data Platform", "ML Research"],
   Security: ["AppSec", "Detection & Response"],
   Operations: ["People Ops", "Revenue Ops"],
-  "Investment Banking": ["M&A Advisory", "Capital Markets", "Restructuring"],
-  "Asset Management": ["Equity", "Fixed Income", "Alternatives"],
-  "Risk & Compliance": ["Credit Risk", "Market Risk", "AML"],
-  Trading: ["Equities", "FX & Rates", "Commodities"],
-  "Clinical Research": ["Phase II/III Trials", "Biostatistics", "Regulatory Submissions"],
-  "Medical Affairs": ["Medical Science Liaison", "Health Economics"],
-  "Health Informatics": ["EHR Systems", "Population Health"],
-  "Pharmaceutical R&D": ["Drug Discovery", "Formulation", "Preclinical"],
-  "Supply Chain": ["Demand Planning", "Inventory Management", "Last-Mile"],
-  "Quality Assurance": ["QA Engineering", "Compliance & Audit"],
-  "Process Engineering": ["Lean Manufacturing", "Automation"],
-  Procurement: ["Strategic Sourcing", "Vendor Management"],
-  "Renewable Energy": ["Solar Development", "Wind Operations", "Storage Solutions"],
-  "Grid Infrastructure": ["Transmission", "Smart Grid", "Control Systems"],
-  "ESG Strategy": ["Carbon Accounting", "Sustainability Reporting"],
-  "Content Strategy": ["Editorial", "Social Media", "SEO & Growth"],
-  "Brand & Marketing": ["Performance Marketing", "Brand Identity"],
-  Journalism: ["Investigative", "Data Journalism", "Video"],
-  "Film & Production": ["Direction", "Post Production", "VFX"],
-  "Curriculum Design": ["K-12", "Higher Education", "Corporate L&D"],
-  "Academic Research": ["Neuroscience", "Social Sciences", "Materials Science"],
-  EdTech: ["Learning Platforms", "Assessment Tools"],
-  Legal: ["Corporate Law", "IP & Patents", "Litigation"],
-  "Public Policy": ["Legislative Affairs", "International Relations"],
-  "Regulatory Affairs": ["FDA Submissions", "EMA Compliance", "Market Access"],
-  "Management Consulting": ["Strategy", "Digital Transformation", "Operations"],
-  "Strategy & Growth": ["Venture Development", "Market Expansion"],
-  "Change Management": ["Organizational Design", "Culture & Engagement"],
-  Logistics: ["Freight Operations", "Route Optimization", "Cold Chain"],
-  "Urban Mobility": ["Micromobility", "Public Transit", "EV Infrastructure"],
-  Aviation: ["Flight Operations", "MRO", "Airport Management"],
-  Architecture: ["Urban Design", "Interior Architecture", "BIM"],
-  "Real Estate Development": ["Commercial", "Residential", "Mixed-Use"],
-  "Construction Management": ["Project Management", "Civil Engineering", "Safety"],
 };
 
 const SKILLS = [
-  // Tech
-  "TypeScript", "Python", "Rust", "Go", "React", "Kubernetes", "LLM Agents",
-  "Distributed Systems", "UX Research", "Figma", "Data Modeling", "MLOps",
-  "Security Engineering", "Product Strategy", "SQL", "Terraform", "GraphQL",
-  "iOS", "Android", "Prompt Engineering",
-  // Finance
-  "Financial Modeling", "Valuation", "Bloomberg Terminal", "Risk Management",
-  "Portfolio Management", "Credit Analysis", "Derivatives", "M&A Execution",
-  "Fixed Income", "Regulatory Reporting",
-  // Healthcare & Life Sciences
-  "Clinical Trial Design", "Biostatistics", "FDA Regulatory", "Pharmacovigilance",
-  "EHR/EMR Systems", "Health Economics", "GCP Compliance", "Drug Development",
-  // Manufacturing & Supply Chain
-  "Lean Six Sigma", "SAP ERP", "Demand Forecasting", "Procurement Strategy",
-  "Quality Management Systems", "Automation & Robotics", "ISO Standards",
-  // Energy
-  "Grid Modeling", "SCADA Systems", "Carbon Accounting", "Energy Storage",
-  "Solar PV Design", "Wind Resource Assessment", "ESG Reporting",
-  // Media & Creative
-  "Content Strategy", "Video Production", "Adobe Creative Suite", "SEO",
-  "Brand Strategy", "Social Media", "Investigative Journalism",
-  // Education & Research
-  "Curriculum Development", "Instructional Design", "Academic Writing",
-  "Research Methodology", "Grant Writing", "Neuroscience",
-  // Legal & Policy
-  "Contract Negotiation", "Intellectual Property", "Litigation", "Compliance",
-  "Policy Analysis", "Regulatory Strategy", "International Law",
-  // Consulting & Strategy
-  "Strategic Planning", "Change Management", "Stakeholder Engagement",
-  "Business Development", "Workshop Facilitation", "Digital Transformation",
-  // Logistics & Transport
-  "Route Optimization", "Fleet Management", "Cold Chain Logistics",
-  "Air Traffic Control", "Supply Chain Analytics",
-  // Real Estate & Construction
-  "BIM/Revit", "Project Management", "Civil Engineering", "Urban Planning",
-  "Real Estate Finance", "Construction Safety", "AutoCAD",
+  "TypeScript",
+  "Python",
+  "Rust",
+  "Go",
+  "React",
+  "Kubernetes",
+  "LLM Agents",
+  "Distributed Systems",
+  "UX Research",
+  "Figma",
+  "Data Modeling",
+  "MLOps",
+  "Security Engineering",
+  "Product Strategy",
+  "SQL",
+  "Terraform",
+  "GraphQL",
+  "iOS",
+  "Android",
+  "Prompt Engineering",
 ] as const;
-
-const ROLE_TITLE_BY_DEPT: Record<string, string> = {
-  Engineering: "Engineer",
-  Product: "Manager",
-  Design: "Designer",
-  "Data & AI": "Analyst",
-  Security: "Engineer",
-  Operations: "Specialist",
-  "Investment Banking": "Analyst",
-  "Asset Management": "Manager",
-  "Risk & Compliance": "Officer",
-  Trading: "Trader",
-  "Clinical Research": "Scientist",
-  "Medical Affairs": "Specialist",
-  "Health Informatics": "Analyst",
-  "Pharmaceutical R&D": "Researcher",
-  "Supply Chain": "Manager",
-  "Quality Assurance": "Engineer",
-  "Process Engineering": "Engineer",
-  Procurement: "Manager",
-  "Renewable Energy": "Engineer",
-  "Grid Infrastructure": "Engineer",
-  "ESG Strategy": "Consultant",
-  "Content Strategy": "Strategist",
-  "Brand & Marketing": "Manager",
-  Journalism: "Journalist",
-  "Film & Production": "Producer",
-  "Curriculum Design": "Designer",
-  "Academic Research": "Researcher",
-  EdTech: "Specialist",
-  Legal: "Counsel",
-  "Public Policy": "Advisor",
-  "Regulatory Affairs": "Specialist",
-  "Management Consulting": "Consultant",
-  "Strategy & Growth": "Strategist",
-  "Change Management": "Consultant",
-  Logistics: "Coordinator",
-  "Urban Mobility": "Planner",
-  Aviation: "Manager",
-  Architecture: "Architect",
-  "Real Estate Development": "Manager",
-  "Construction Management": "Manager",
-};
 
 const SENIORITY: SeniorityLevel[] = ["junior", "mid", "senior", "staff", "lead"];
 const AVAILABILITY: AvailabilityStatus[] = [
@@ -261,7 +123,7 @@ function jitter(value: number, spread: number) {
   return value + (rand() - 0.5) * spread;
 }
 
-const TALENT_COUNT = 420;
+const TALENT_COUNT = 260;
 
 export const talents: Talent[] = Array.from({ length: TALENT_COUNT }, (_, i) => {
   const hub = pick(HUBS);
@@ -278,14 +140,13 @@ export const talents: Talent[] = Array.from({ length: TALENT_COUNT }, (_, i) => 
           ? Math.floor(6 + rand() * 4)
           : Math.floor(9 + rand() * 8);
 
-  const roleTitle = ROLE_TITLE_BY_DEPT[department] ?? "Specialist";
-  const seniorityLabel = seniority === "lead" ? "Lead" : seniority[0].toUpperCase() + seniority.slice(1);
-
   return {
     id: `t-${i.toString().padStart(4, "0")}`,
     name,
     initials,
-    role: `${seniorityLabel} ${team} ${roleTitle}`,
+    role: `${seniority === "lead" ? "Lead" : seniority[0].toUpperCase() + seniority.slice(1)} ${team} ${
+      department === "Engineering" ? "Engineer" : department === "Design" ? "Designer" : "Specialist"
+    }`,
     team: `${team}`,
     department,
     location: {
@@ -380,7 +241,7 @@ for (const team of teams) {
 }
 
 // Cross-region mentorship / cross-functional links for global network texture
-for (let i = 0; i < 70; i++) {
+for (let i = 0; i < 40; i++) {
   const a = pick(talents);
   const b = pick(talents);
   if (a.id !== b.id) {
